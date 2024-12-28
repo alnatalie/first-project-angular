@@ -1,0 +1,10 @@
+<h3>ToDo List</h3>
+<todo-input (out)="addItem($event)" />
+<ol>
+  @for (item of items; track item){
+
+  <li>
+    <todo-items [item]="item" />
+  </li>
+  }
+</ol>

@@ -1,0 +1,70 @@
+<fieldset>
+    <legend> main component</legend>
+        <h3>Шаблонные переменные</h3>
+        <input #myInput [ngModel]="val"/>
+        <span> myInput.value ={{myInput.value}}</span><hr>
+        <div #myDiv [class]=" {round: true, green: condition, red: !condition}" (click)="toggleCondition()"> </div>
+        <div style="height: 50px; width: 50px;" [class.red]="myDiv.classList.contains('red')"></div>
+        <input type="text" #myText />
+        <div [class]="{round: true, green:true, red:myText.value.length>10}">{{myText.value.length}}</div>
+
+
+        <h3>Взаимодействие компонентов</h3>
+
+        <h3>Директивы </h3>
+        <button (click)="toggleCondition()">{{condition}}</button>
+        <ng-template [ngIf]="condition"> 
+            <span>TRUE!!!</span>
+        </ng-template><br/>
+        state = <span *ngIf="condition">TRUE!!!</span><br/>
+        state = @if (condition) {<span>TRUE!!!</span>} 
+        <hr>
+        <ul>
+            <ng-template ngFor [ngForOf]="items" let-item>
+                <li>{{item}}</li>
+            </ng-template>
+        </ul>
+        <span *ngFor ="let item of items; let i = index">{{i}}-{{item}},</span><br/>
+        @for (item of items; track item) {<span>{{item}},</span>}
+        <hr>
+        2+2=
+        <span [ngSwitch]="2+2">
+            <b *ngSwitchCase="3">3</b>
+            <b *ngSwitchCase="4">4</b>
+            <b *ngSwitchCase="5">5</b>
+        </span><br>
+        2+2=
+        @switch (2+2){
+            @case (3) {<b>3</b>}
+            @case (4) {<b>4</b>}
+            @case (5) {<b>5</b>}
+        }
+
+        <h3>Pipes!</h3>
+        Pipe currency: <span>{{1/7 | currency}}</span><br>
+        Pipe precent: <span>{{1/7 | percent}}</span><br>
+        Pipe uppercase: <span>{{'hello' | uppercase }}</span><br>
+        Pipe lowercase: <span>{{'WHAT' | lowercase }}</span><br>
+
+
+
+
+        <h3>Классы и стили</h3>
+        <div class="flex">
+            <div [class]=" {round: true, green: condition}"> </div>
+            <div [class]=" ['round', condition?  '': 'red']"> </div>
+            <div [class.round]="true" [class.green]="condition"></div>
+        </div>
+        <button [style.height.px]="h" (click)="increaseH()">inline style</button>
+
+        <h3>Связывание</h3>
+        <div>2+2={{2+2}}</div>
+        <div>val = {{val.toUpperCase()}}</div>
+        <button title="{{val}}">see my title </button>
+        <button [title]="val">see my title </button>
+        <input [value]="val">
+        <input [(ngModel)] ="val"/>
+        <button (click)="toggleCondition()">{{condition}}</button>
+        
+</fieldset>
+

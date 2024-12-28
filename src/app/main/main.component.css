@@ -1,0 +1,26 @@
+h3 {
+    border-bottom: 1px solid black ;
+}
+
+.flex {
+    display: flex;
+}
+
+.round {
+    border-radius: 50%;
+    width: 50px;
+    aspect-ratio: 1;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.green {
+    background-color: greenyellow;
+}
+
+.red {
+    background-color: red;
+}

@@ -1,0 +1,19 @@
+
+<!-- parentValue = <input [(ngModel)="parentValue"/> -->
+<h3>Односторонняя</h3>
+<les2-inp/>
+<les2-inp inp="value 111"/>
+<les2-inp [inp]="parentValue"/>
+ <h3>Привязка к сеттеру</h3>
+ <les2-setter />
+ <les2-setter [inp]="parentValue"/>
+
+ <h3>Привязка метода</h3>
+ <les2-out (out)="addItemToStart($event)" />
+ <ol>
+     @for (item of arr; track item){
+        <li>{{item}}</li>
+     }
+
+ </ol>
+ <les2-out (out)="addItemToEnd($event)" />
