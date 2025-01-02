@@ -1,5 +1,5 @@
 
-<!-- parentValue = <input [(ngModel)="parentValue"/> -->
+parentValue = <input [(ngModel)]="parentValue"/>
 <h3>Односторонняя</h3>
 <les2-inp/>
 <les2-inp inp="value 111"/>
@@ -17,3 +17,10 @@
 
  </ol>
  <les2-out (out)="addItemToEnd($event)" />
+
+ <h3>Двухстороннее связывание</h3>
+ parentValue = <input [(ngModel)]="parentValue"/><br/>
+ <les2-tw [tw]="parentValue" /><br/>
+ <les2-tw (twChange)="setParentValue($event)" />
+
+ 

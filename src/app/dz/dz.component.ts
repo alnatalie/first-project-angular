@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class ToDoItem {
-  @Input() item = {}
+  @Input() item ={}
 
 }
 
@@ -49,9 +49,9 @@ export class ToDoInput {
 export class DzComponent {
   items = 
     [
-      'Дело№1',
-       'Дело№2',
-      'Дело№3'
+      {title:'Дело№1', checked: false},
+      {title:'Дело№2', chacked: false},
+      {title:'Дело№3', chacked: false},
     ]
     addItem(item:any){this.items.push(item)};
 };

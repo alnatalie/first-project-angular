@@ -16,5 +16,7 @@ export class AppComponent {
     { href: '/Les1', title: 'Les1 template lang' },
     { href: '/Les2', title: 'Les2 components' },
     { href: '/dz', title: 'Home work' },
+    {href: '/new-todo-list', title: 'New Todo'},
+    { href: '/les3', title: 'Les3 components' },
   ];
 }
