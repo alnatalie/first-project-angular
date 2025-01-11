@@ -1,0 +1,6 @@
+<div>
+    <input type="checkbox" 
+    [(ngModel)]="item.checked">
+    <span>{{item.text}}</span>
+    <button (click)="delById.emit(item.id)">❌</button>
+</div>

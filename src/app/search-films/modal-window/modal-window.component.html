@@ -1,0 +1,15 @@
+
+<div *ngFor="let metaMovie of metaMovies" class="modalWindow">
+    <div class="selectedMovie">
+        <button>✖</button>
+    </div>
+    <div class="contentModal">
+        <h2>{{metaMovie.Title}}</h2>
+        <img class="poster" [src]="metaMovie.Poster" alt="{{metaMovie.Title}}" width="100">
+        <p>{{metaMovie.Director}}</p>
+        <p>{{metaMovie.Year}}</p>
+        <p>{{metaMovie.Actors}}</p>
+        <p>{{metaMovie.Plot}}</p>
+    </div>
+
+</div>

@@ -1,0 +1,13 @@
+<main>
+    <h1>КИНОПОИСК</h1>
+    <app-input (nameMovie)="handleSearch($event)"/> 
+    <div>
+        <div id="films" class="films" *ngIf="movies.length>0">
+            <div class="dataFilm" *ngFor="let movie of movies">
+                <img class="poster" [src]="movie.Poster" alt="{{movie.Title}}" width="100">
+                <h3 class="title">{{movie.Title}}</h3>
+            </div>
+        </div>
+    </div>
+</main>
+

@@ -15,10 +15,7 @@ interface hasId{
 export class Les3Component {
   constructor(private http: HttpClient) {}
 
-  users:hasId[] = [
-    // { id: 1, name: 'a' },
-    // { id: 2, name: 'b' },
-  ];
+  users:hasId[] = [];
   ngOnInit() {
     this.http
       .get('https://jsonplaceholder.typicode.com/users')

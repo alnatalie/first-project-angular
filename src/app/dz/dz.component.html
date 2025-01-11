@@ -1,10 +1,16 @@
-<h3>ToDo List</h3>
-<todo-input (out)="addItem($event)" />
-<ol>
-  @for (item of items; track item){
+<h2>ToDo List</h2>
+<main class="todo-container">
+  <div>
+    <app-todo-input (newItem)="addTask($event)" />
+  </div>
+  <ul class="task-list">
+    @for( item of todoList; track item.id;){
+      <li>
+        <app-todo-item [item]="item" (delById)="delById($event)" />
+      </li>
+    }
+  </ul>
+  
 
-  <li>
-    <todo-items [item]="item" />
-  </li>
-  }
-</ol>
+</main>
+

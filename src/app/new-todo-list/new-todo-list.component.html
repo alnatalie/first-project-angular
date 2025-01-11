@@ -1,2 +1,20 @@
 <p>new-todo-list works!</p>
 
+<main class="todo-container">
+    <div class="add-tasks">
+        <input [(ngModel)] = "newTask"  placeholder="Enter new tasks"/>
+        <button (click)="addTask()">Add</button>
+    </div>
+    <ul class="task-list">
+        <li *ngFor="let todoItem of todoList; let i=index" [ngClass]="{'checked':todoItem.checked}">
+            <input type="checkbox"
+            [(checked)]="todoItem.checked"
+            (change)="toggleCompleted(i)"/>
+            <span [class.checked]="todoItem.checked">{{todoItem.title}}</span>
+            <button (click)="deleteTask(todoItem.id)">Del</button>
+
+        </li>
+    </ul>
+
+</main>
+

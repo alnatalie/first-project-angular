@@ -1,5 +1,5 @@
 <main>
-  <svg
+  <!-- <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 982 239"
     fill="none"
@@ -43,20 +43,20 @@
       </linearGradient>
       <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
     </defs>
-  </svg>
+  </svg> -->
   <header>
     <ul>
       @for (item of nav; track item.href) {
       <li>
-        <a [routerLink]="item.href"
-        routerLinkActive="active">
-          {{ item.title }}</a>
+          <a [routerLink]="item.href"
+          routerLinkActive="active">
+            {{ item.title }}</a>
+
       </li>
       }
     </ul>
     <hr />
   </header>
-  <h1>Hello, {{ title }}</h1>
   <router-outlet />
   <footer>
     <hr />

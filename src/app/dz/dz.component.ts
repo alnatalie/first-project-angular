@@ -1,57 +1,38 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-
-@Component({
-  selector: 'todo-items',
-  imports: [FormsModule],
-  template: `<fieldset> 
-      <input type="checkbox">
-      <span>{{item}}</span>
-      <button >❌</button>
-      <button>✏️</button>
-  </fieldset>`
-
-})
-
-export class ToDoItem {
-  @Input() item ={}
-
-}
-
-@Component({
-  selector: 'todo-input',
-  imports: [FormsModule,],
-  template: `<fieldset>
-    <legend>Список дел </legend>
-    <input [(ngModel)] ="inp"/><button (click)="out.emit(inp)">➕Добавить</button>
-  </fieldset>`
-
-
-})
-export class ToDoInput {
-  @Input() inp = 'Дело №'
-  @Output() out = new EventEmitter;
-  
-
-}
+import { TodoInputComponent } from './todo-input/todo-input.component';
+import { CommonModule } from '@angular/common';
+import { TodoItem, TodoItemComponent } from './todo-item/todo-item.component';
 
 
 
 @Component({
   selector: 'app-dz',
-  imports: [ToDoInput, FormsModule, ToDoItem],
+  imports: [FormsModule,TodoInputComponent, CommonModule, TodoItemComponent, ],
   templateUrl: './dz.component.html',
   styleUrl: './dz.component.css'
-  
-  
 })
+
 export class DzComponent {
-  items = 
-    [
-      {title:'Дело№1', checked: false},
-      {title:'Дело№2', chacked: false},
-      {title:'Дело№3', chacked: false},
-    ]
-    addItem(item:any){this.items.push(item)};
-};
+  todoList = [ 
+    new TodoItem('дело№1', true),
+    new TodoItem('дело№2'),
+  ];
+  
+
+addTask(text:string){
+  this.todoList.push(new TodoItem(text))
+}
+
+delById(id:number){
+  this.todoList = this.todoList.filter(item=> item.id !==id)
+}
+
+toggleCompleted(id:number){
+  this.todoList[id].checked = !this.todoList[id].checked
+}
+
+}
+
+
+

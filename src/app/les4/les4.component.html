@@ -1,0 +1,18 @@
+<p>les4 works!</p>
+<fieldset>
+    <legend>posts</legend>
+    @for(post of posts; track post){
+        <span>{{post.title}}</span>
+    }
+</fieldset>
+
+<h4>users:</h4>
+@if (users | async; as _users) {
+<ol>
+  @for (user of _users; track user.id ){
+  <li>{{ user.name }}
+    <button (click)="getPosts(user.id)">show posts</button>
+  </li>
+  }
+</ol>
+} @else { loading... }
